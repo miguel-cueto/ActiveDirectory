@@ -33,7 +33,10 @@ Download and install Oracle VirtualBox 7.0.18:
   - <b>After installation, restart the VirtualBox installer
 - <b>Also, download the "VirtualBox 7.0.18 Oracle VM VirtualBox Extension Pack" by clicking on "All supported platforms"
 
-
+<p align="center">
+<img src="https://i.imgur.com/c1TC8mC.png" height="80%" width="80%" alt="VirtualBox"/>
+<br />
+<br />
 Download the Windows 10 ISO:
 
 - <b>Visit https://www.microsoft.com/en-us/software-download/windows10ISO
