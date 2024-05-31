@@ -132,6 +132,12 @@ In Settings > Network, enable two network adapters:
   - <b>Launch the Active Directory Domain Services Configuration Wizard
   - <b>Select "Add a new forest" and enter a root domain name (e.g., mydomain.com)
   - <b>Provide a password for Directory Services Restore Mode (DSRM)
+
+<p align="center">
+<img src="https://i.imgur.com/vCIOuT2.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
+  
 - <b>After installation, restart the VM when prompted.
 
 
