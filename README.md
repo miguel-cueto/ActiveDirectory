@@ -48,10 +48,13 @@ Download the Windows 10 ISO:
 <br />
 Download the Windows Server 2019 ISO:
 
-- <b>Visit https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019
+- <b>Visit https://info.microsoft.com/ww-landing-windows-server-2019.html
 - <b>Follow the prompts to download the Windows Server 2019 ISO file
 
-
+<p align="center">
+<img src="https://i.imgur.com/lAcQmoT.png" height="80%" width="80%" alt="VirtualBox"/>
+<br />
+<br />
 <p align="center">
 Setup Domain Controller VM:
 
