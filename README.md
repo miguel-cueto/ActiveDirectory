@@ -77,13 +77,17 @@ In Settings > Network, enable two network adapters:
 - <b>Start the VM
 
 <p align="center">
-<img src="https://i.imgur.com/eXwoicS.png" height="80%" width="80%" alt="VirtualBox"/>
+<img src="https://i.imgur.com/eXwoicS.png" height="80%" width="80%" alt="VM"/>
 <br />
 <br />
 
-- <b>Install Windows Server 2019 (provide a product key if prompted).
+- <b>Install Windows Server 2019.
 - <b>In the "Windows Server Installer", select "Windows Server 2019 Standard Evaluation (Desktop Experience)".
 - <b>After installation, log into the server as Administrator.
+- <b>Speed the VM by installing VBoxWindowsAdditons-amd64
+  - <b>Click Devices > Insert Guest Additions CD Images.
+  - <b>Click the File Explore Icon > This PC > CD Drive (D:) VirtualBox Guest Additions > VBoxWindowsAdditons-amd64
+  - <b>Click Start Icon > Shutdown
 - <b>In Server Manager, click "Add roles and features".
 - <b>Install the "Active Directory Domain Services" role.
 - <b>After installation, restart the VM when prompted.
