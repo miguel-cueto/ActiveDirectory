@@ -121,12 +121,18 @@ In Settings > Network, enable two network adapters:
 
 - <b>In Server Manager, click "Add roles and features".
 - <b>Install the "Active Directory Domain Services" role.
-- <b>After installation, restart the VM when prompted.
+
+<p align="center">
+<img src="https://i.imgur.com/dLP8T8f.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
+  
 - <b>Promote the server as a Domain Controller:
 
   - <b>Launch the Active Directory Domain Services Configuration Wizard
   - <b>Select "Add a new forest" and enter a root domain name (e.g., mydomain.com)
   - <b>Provide a password for Directory Services Restore Mode (DSRM)
+- <b>After installation, restart the VM when prompted.
 
 
 - <b>Create a new Organizational Unit (OU) named "_Admins":
