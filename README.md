@@ -157,10 +157,14 @@ In Settings > Network, enable two network adapters:
   - <b>In Active Directory Users and Computers, right-click the Admins OU
   - <b>Select New > User
   - <b>Enter the first name, last name, and username (e.g., a-(First Initial, Last Name)
-  - <b>Click Next, enter a secure password, and uncheck any additional options
+  - <b>Click Next, enter a secure password, and only check "Password never expires."
   - <b>Click Finish, then right-click the new user and select "Add to a group"
   - <b>Type "domain admins", click OK, then OK again to add the user to the Domain Admins group
 
+<p align="center">
+<img src="https://i.imgur.com/9kEB81d.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
 
 <p align="center">
 Configure Routing and NAT:
