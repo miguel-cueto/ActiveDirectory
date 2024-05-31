@@ -65,16 +65,23 @@ Setup Domain Controller VM:
 - <b>Select "VDI (VirtualBox Disk Image)" as the hard disk file type and click "Next".
 - <b>Select "Dynamically allocated" as the storage type and click "Next".
 - <b>Leave the location and file size as default and click "Create".
-- <b>With the VM selected, go to Settings > System and increase the number of processors if your host machine can support more.
+- <b>With the VM selected, go to Settings > General > Advanced.  Change "Shared Clipboard" and Drag'n'Drop to Bidirectional.
+- <b>In Settings > System > Processor and increase the number of processors if your host machine can support more.  Click on "Enable PAE/NX" under Extended Features.
 - <b>In the Settings > Display, increase the video memory to the maximum allowed value.
-- <b>In Settings > Storage, click the "Empty" disk icon and add the Windows Server 2019 ISO file.
 In Settings > Network, enable two network adapters:
 
   - <b>Adapter 1: Attached to NAT (for internet connectivity)
   - <b>Adapter 2: Attached to Internal Network (for domain connectivity)
 
 
-- <b>Start the VM and install Windows Server 2019 (provide a product key if prompted).
+- <b>Start the VM
+
+<p align="center">
+<img src="https://i.imgur.com/eXwoicS.png" height="80%" width="80%" alt="VirtualBox"/>
+<br />
+<br />
+
+- <b>Install Windows Server 2019 (provide a product key if prompted).
 - <b>In the "Windows Server Installer", select "Windows Server 2019 Standard Evaluation (Desktop Experience)".
 - <b>After installation, log into the server as Administrator.
 - <b>In Server Manager, click "Add roles and features".
