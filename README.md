@@ -105,7 +105,13 @@ In Settings > Network, enable two network adapters:
 <br />
 
 - <b>Rename the PC
-  - <b>Right click Start Icon > System > Rename This PC
+  - <b>Right click Start Icon > System > Rename This PC > rename it "DC"
+
+<p align="center">
+<img src="https://i.imgur.com/9TYESVB.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
+
 - <b>In Server Manager, click "Add roles and features".
 - <b>Install the "Active Directory Domain Services" role.
 - <b>After installation, restart the VM when prompted.
