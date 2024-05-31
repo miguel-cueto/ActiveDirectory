@@ -58,7 +58,7 @@ Download the Windows Server 2019 ISO:
 <p align="center">
 Setup Domain Controller VM:
 
-- <b>Open Oracle VirtualBox and click "New" to create a new virtual machine.
+- <b>Open Oracle VirtualBox and click the "Machine" tab, then click "New" to create a new virtual machine.
 - <b>Name the virtual machine "DC" and select "Microsoft Windows" as the Type. Click "Next".
 - <b>Assign at least 2048 MB (2 GB) of RAM to the virtual machine and click "Next".
 - <b>Select "Create a virtual hard disk now" and click "Create".
