@@ -98,6 +98,12 @@ In Settings > Network, enable two network adapters:
   - <b>Network Icon > Network > Change adopter options >
       - <b>Ethernet Network > right click Status > Detail... > Look at IP Address (10.x.x.x) > rename INTERNET
       - <b>Ethernet 2 Unidentified Network > right click Status > Detail... > Look at IP Address (169.254.x.x) > rename INTERNAL
+         - <b>Right click "INTERNAL" > Properties > Internet Protocol Version 4 (TCP/IPv4) > Use the following IP Address: >
+          -<b>Change "IP address" to 172.16.0.1
+          -<b>Change "Subnet mask" to 255.255.255.0
+          -<b>Leave "Default gateway" blank
+          -<b>Change "Preferred DNS server" to 172.16.0.1
+          -<b>Leave "Alternet DNS server" blank
 
 <p align="center">
 <img src="https://i.imgur.com/38bOH2D.png" height="80%" width="80%" alt="Internal Internet"/>
