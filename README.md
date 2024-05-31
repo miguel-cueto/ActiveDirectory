@@ -42,7 +42,10 @@ Download the Windows 10 ISO:
 - <b>Visit https://www.microsoft.com/en-us/software-download/windows10ISO
 - <b>Follow the prompts to download the Windows 10 ISO file
 
-
+<p align="center">
+<img src="https://i.imgur.com/4oywnTk.png" height="80%" width="80%" alt="Window 10"/>
+<br />
+<br />
 Download the Windows Server 2019 ISO:
 
 - <b>Visit https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019
