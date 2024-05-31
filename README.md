@@ -181,7 +181,7 @@ Configure Routing and NAT:
 - <b>In the Tools menu, open "Routing and Remote Access".
 - <b>Right-click on the server name and select "Configure and Enable Routing and Remote Access".
 - <b>In the wizard, select "Network Address Translation (NAT)".
-- <b>For the NAT Internet Connection, select the "NAT" adapter (Adapter 1).
+- <b>For the NAT Internet Connection, select the "NAT" adapter (Adapter 1 aka INTERNET).
 - <b>Complete the wizard to enable NAT.
 
 <p align="center">
