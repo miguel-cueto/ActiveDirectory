@@ -94,6 +94,18 @@ In Settings > Network, enable two network adapters:
 <br />
 <br />
 
+- <b>Setup Internal Internet
+  - <b>Network Icon > Network > Change adopter options >
+      - <b>Ethernet Network > right click Status > Detail... > Look at IP Address (10.x.x.x) > rename INTERNET
+      - <b>Ethernet 2 Unidentified Network > right click Status > Detail... > Look at IP Address (169.254.x.x) > rename INTERNAL
+
+<p align="center">
+<img src="https://i.imgur.com/38bOH2D.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
+
+- <b>Rename the PC
+  - <b>Right click Start Icon > System > Rename This PC
 - <b>In Server Manager, click "Add roles and features".
 - <b>Install the "Active Directory Domain Services" role.
 - <b>After installation, restart the VM when prompted.
