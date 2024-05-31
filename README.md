@@ -88,6 +88,12 @@ In Settings > Network, enable two network adapters:
   - <b>Click Devices > Insert Guest Additions CD Images.
   - <b>Click the File Explore Icon > This PC > CD Drive (D:) VirtualBox Guest Additions > VBoxWindowsAdditons-amd64
   - <b>Click Start Icon > Shutdown
+
+<p align="center">
+<img src="https://i.imgur.com/oz1f2nc.png" height="80%" width="80%" alt="VBoxWindowsAdditons-amd64"/>
+<br />
+<br />
+
 - <b>In Server Manager, click "Add roles and features".
 - <b>Install the "Active Directory Domain Services" role.
 - <b>After installation, restart the VM when prompted.
