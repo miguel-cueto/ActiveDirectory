@@ -193,16 +193,19 @@ Configure DHCP Server:
 - <b>Create a new Scope:
 
   - <b>Right-click "Scope" and select "New Scope"
+      <b>Name it after the scope 172.16.0.100-200
   - <b>Scope name: Internal Network
   - <b>Network: 172.16.0.0/24 (matches the internal adapter IP)
-  - <b>Add an exclusion range if needed
 
+<p align="center">
+<img src="https://i.imgur.com/kXI892f.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
 
 - <b>Configure Scope Options:
-
-  - <b>Router: 172.16.0.1 (IP of the DC internal adapter)
-  - <b>Parent/Root Domain: mydomain.com
-  - <b>Activate the new scope
+  - <b>Under "Router (Default Gateway)" window go to "IP address" and put 172.16.0.1 (IP of the DC internal adapter) and click add
+  - <b>Under Domain Name and DNS Servers go to Parent/Root Domain: mydomain.com and make sure IP Address is 172.16.0.1 and press Next until you are done
+  - <b> Right-click dc.mydomain.com > Authorize > then go back and Refresh to Activate the new scope
 
 
 <p align="center">
