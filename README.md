@@ -141,16 +141,20 @@ In Settings > Network, enable two network adapters:
 - <b>After installation, restart the VM when prompted.
 
 
-- <b>Create a new Organizational Unit (OU) named "_Admins":
+- <b>Create a new Organizational Unit (OU) named "Admins":
 
-  - <b>Go to Administrative Tools > Active Directory Users and Computers
+  - <b>Go to Start Icon > Administrative Tools > Active Directory Users and Computers
   - <b>Right-click the domain name and select New > Organizational Unit
-  - <b>Name the OU "_Admins"
+  - <b>Name the OU "Admins"
 
+<p align="center">
+<img src="https://i.imgur.com/3XgxiCA.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
 
-- <b>Create a domain admin account in the _Admins OU (e.g., a-"first initial"/"last name"):
+- <b>Create a domain admin account in the Admins OU (e.g., a-"first initial"/"last name"):
 
-  - <b>In Active Directory Users and Computers, right-click the _Admins OU
+  - <b>In Active Directory Users and Computers, right-click the Admins OU
   - <b>Select New > User
   - <b>Enter the first name, last name, and username (e.g., a-(First Initial, Last Name)
   - <b>Click Next, enter a secure password, and uncheck any additional options
