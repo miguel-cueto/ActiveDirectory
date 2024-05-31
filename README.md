@@ -171,6 +171,13 @@ Configure Routing and NAT:
 
 - <b>In the DC VM, launch Server Manager.
 - <b>Click "Add roles and features" and install the "Remote Access" role.
+   - <b>When you get to "Role services" click on Routing
+
+<p align="center">
+<img src="https://i.imgur.com/PaC4CGC.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
+
 - <b>In the Tools menu, open "Routing and Remote Access".
 - <b>Right-click on the server name and select "Configure and Enable Routing and Remote Access".
 - <b>In the wizard, select "Network Address Translation (NAT)".
