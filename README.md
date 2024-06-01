@@ -211,6 +211,40 @@ Configure DHCP Server:
 <p align="center">
 Create Active Directory Users:
 
+- <b>Configure DC to browse the internet
+    <b>Go to Server Manager > Dashboard > Configure this local server > Click on IE Enhanced Security Configuration > Turn off Administrators and Users
+- <b>Create a Notepad with 1000 names
+    <b>Go to Start Icon and open Notepad
+    <b>Go to https://1000randomnames.com/
+    <b>Copy and paste the 1000 names into Notepad, put your name on top and save it as "names"
+- <b>Create Powershell
+    <b>Start Icon > Notepad and Copy and Paste the following ...
+
+# ----- Edit these Variables for your own Use Case ----- #
+$PASSWORD_FOR_USERS   = "Password1"
+$USER_FIRST_LAST_LIST = Get-Content .\names.txt
+# ------------------------------------------------------ #
+
+$password = ConvertTo-SecureString $PASSWORD_FOR_USERS -AsPlainText -Force
+New-ADOrganizationalUnit -Name _USERS -ProtectedFromAccidentalDeletion $false
+
+foreach ($n in $USER_FIRST_LAST_LIST) {
+    $first = $n.Split(" ")[0].ToLower()
+    $last = $n.Split(" ")[1].ToLower()
+    $username = "$($first.Substring(0,1))$($last)".ToLower()
+    Write-Host "Creating user: $($username)" -BackgroundColor Black -ForegroundColor Cyan
+    
+    New-AdUser -AccountPassword $password `
+               -GivenName $first `
+               -Surname $last `
+               -DisplayName $username `
+               -Name $username `
+               -EmployeeID $username `
+               -PasswordNeverExpires $true `
+               -Path "ou=_USERS,$(([ADSI]`"").distinguishedName)" `
+               -Enabled $true
+}
+
 - <b>On the DC VM desktop, create a new folder named "PDscripts".
 - <b>Download the New-CustomUsers.ps1 PowerShell script (link provided in the notes).
 - <b>Extract the script and names.txt file into the PDscripts folder.
