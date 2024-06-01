@@ -205,20 +205,15 @@ Configure DHCP Server:
 - <b>Configure Scope Options:
   - <b>Under "Router (Default Gateway)" window go to "IP address" and put 172.16.0.1 (IP of the DC internal adapter) and click add
   - <b>Under Domain Name and DNS Servers go to Parent/Root Domain: mydomain.com and make sure IP Address is 172.16.0.1 and press Next until you are done
-  - <b> Right-click dc.mydomain.com > Authorize > then go back and Refresh to Activate the new scope
-
-
-<p align="center">
-Create Active Directory Users:
-
-- <b>Configure DC to browse the internet
-    <b>Go to Server Manager > Dashboard > Configure this local server > Click on IE Enhanced Security Configuration > Turn off Administrators and Users
+  - <b>Right-click dc.mydomain.com > Authorize > then go back and Refresh to Activate the new scope
+- <b>Configure for web browsing
+  - <b>Go to Server Manager > Dashboard > Configure this local server > Click on IE Enhanced Security Configuration > Turn off Administrators and Users
 - <b>Create a Notepad with 1000 names
-    <b>Go to Start Icon and open Notepad
-    <b>Go to https://1000randomnames.com/
-    <b>Copy and paste the 1000 names into Notepad, put your name on top and save it as "names"
+  - <b>Go to Start Icon and open Notepad
+  - <b>Go to https://1000randomnames.com/
+  - <b>Copy and paste the 1000 names into Notepad, add your name and save it as "names"
 - <b>Create Powershell
-    <b>Start Icon > Notepad and Copy and Paste the following ...
+  - <b>Start Icon > Notepad and Copy and Paste the following ...
 
 # ----- Edit these Variables for your own Use Case ----- #
 $PASSWORD_FOR_USERS   = "Password1"
@@ -244,6 +239,13 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
                -Path "ou=_USERS,$(([ADSI]`"").distinguishedName)" `
                -Enabled $true
 }
+
+
+  - <b>Save the Notepad on the Desktop as CREATE_USERS.ps1
+
+<p align="center">
+Create Active Directory Users:
+
 
 - <b>On the DC VM desktop, create a new folder named "PDscripts".
 - <b>Download the New-CustomUsers.ps1 PowerShell script (link provided in the notes).
