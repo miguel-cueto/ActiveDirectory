@@ -1,4 +1,4 @@
-<h1>Creating a Full Active Directory Lab</h1>
+<h1>Creating a Full Active Directory</h1>
 
 
 <h2>Description</h2>
@@ -206,26 +206,40 @@ Configure DHCP Server:
   - <b>Under "Router (Default Gateway)" window go to "IP address" and put 172.16.0.1 (IP of the DC internal adapter) and click add
   - <b>Under Domain Name and DNS Servers go to Parent/Root Domain: mydomain.com and make sure IP Address is 172.16.0.1 and press Next until you are done
   - <b>Right-click dc.mydomain.com > Authorize > then go back and Refresh to Activate the new scope
+
+
+<p align="center">
+Create Active Directory Users:
+
+
 - <b>Configure for web browsing
   - <b>Go to Server Manager > Dashboard > Configure this local server > Click on IE Enhanced Security Configuration > Turn off Administrators and Users
 - <b>Create a Notepad with 1000 names
   - <b>Go to Start Icon and open Notepad
   - <b>Go to https://1000randomnames.com/
-  - <b>Copy and paste the 1000 names into Notepad, add your name and save it as "names"
+  - <b>Copy and paste the 1000 names into Notepad, add your name and save it as "names.txt"
 - <b>Create Powershell
   - <b>Start Icon > Notepad and Copy and Paste the following ...
 
 # ----- Edit these Variables for your own Use Case ----- #
 $PASSWORD_FOR_USERS   = "Password1"
-$USER_FIRST_LAST_LIST = Get-Content .\names.txt
 # ------------------------------------------------------ #
 
+# Get the current user's desktop path
+$DesktopPath = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::Desktop)
+
+# Combine the desktop path with the folder and file name
+$USER_FIRST_LAST_LIST = Get-Content (Join-Path $DesktopPath "AD_PS-master\names.txt")
+
 $password = ConvertTo-SecureString $PASSWORD_FOR_USERS -AsPlainText -Force
-New-ADOrganizationalUnit -Name _USERS -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit -Name "USERS" -ProtectedFromAccidentalDeletion $false
 
 foreach ($n in $USER_FIRST_LAST_LIST) {
-    $first = $n.Split(" ")[0].ToLower()
-    $last = $n.Split(" ")[1].ToLower()
+    # Remove digits from the beginning of the name
+    $cleanName = $n -replace '^\d+',''
+    
+    $first = $cleanName.Split(" ")[0].ToLower()
+    $last = $cleanName.Split(" ")[1].ToLower()
     $username = "$($first.Substring(0,1))$($last)".ToLower()
     Write-Host "Creating user: $($username)" -BackgroundColor Black -ForegroundColor Cyan
     
@@ -236,23 +250,23 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
                -Name $username `
                -EmployeeID $username `
                -PasswordNeverExpires $true `
-               -Path "ou=_USERS,$(([ADSI]`"").distinguishedName)" `
+               -Path "ou=USERS,$(([ADSI]'').distinguishedName)" `
                -Enabled $true
 }
 
 
-  - <b>Save the Notepad on the Desktop as CREATE_USERS.ps1
+  - <b>Save the Notepad on the Desktop as 1_CREATE_USERS.ps1
+  - <b>Create a new folder and call it AD_PS-master
+  - <b>Add 1_CREAT_USERS and names into AD_PS-master folder
 
 <p align="center">
-Create Active Directory Users:
-
-
-- <b>On the DC VM desktop, create a new folder named "PDscripts".
-- <b>Download the New-CustomUsers.ps1 PowerShell script (link provided in the notes).
-- <b>Extract the script and names.txt file into the PDscripts folder.
-- <b>Open the names.txt file and add your name at the top.
-- <b>Open PowerShell as Administrator.
-- <b>Run the command: Set-ExecutionPolicy Unrestricted
+<img src="https://i.imgur.com/pt1a0Wt.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
+  
+- <b>Start Icon > Windows Powershell > Windows Powershell ISE > More > Run as Administrator.
+- <b>Click on Open Script Icon > Desktop > 1_CREATE_USERS
+- <b>Run the command (F5) > and write "Set-ExecutionPolicy Unrestricted"
 - <b>Change the directory to the script location: cd C:\Users\Administrator\Desktop\PDscripts
 - <b>Run the script: .\New-CustomUsers.ps1
 
