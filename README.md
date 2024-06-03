@@ -141,20 +141,20 @@ In Settings > Network, enable two network adapters:
 - <b>After installation, restart the VM when prompted.
 
 
-- <b>Create a new Organizational Unit (OU) named "Admins":
+- <b>Create a new Organizational Unit (OU) named "_ADMINS":
 
   - <b>Go to Start Icon > Administrative Tools > Active Directory Users and Computers
   - <b>Right-click the domain name and select New > Organizational Unit
-  - <b>Name the OU "Admins"
+  - <b>Name the OU "_ADMINS"
 
 <p align="center">
 <img src="https://i.imgur.com/3XgxiCA.png" height="80%" width="80%" alt="Internal Internet"/>
 <br />
 <br />
 
-- <b>Create a domain admin account in the Admins OU (e.g., a-"first initial"/"last name"):
+- <b>Create a domain admin account in the _ADMINS OU (e.g., a-"first initial"/"last name"):
 
-  - <b>In Active Directory Users and Computers, right-click the Admins OU
+  - <b>In Active Directory Users and Computers, right-click the _ADMINS OU
   - <b>Select New > User
   - <b>Enter the first name, last name, and username (e.g., a-(First Initial, Last Name)
   - <b>Click Next, enter a secure password, and only check "Password never expires."
@@ -217,29 +217,25 @@ Create Active Directory Users:
 - <b>Create a Notepad with 1000 names
   - <b>Go to Start Icon and open Notepad
   - <b>Go to https://1000randomnames.com/
-  - <b>Copy and paste the 1000 names into Notepad, add your name and save it as "names.txt"
+  - <b>Copy and paste the 1000 names into Notepad, add your name and save it as "names"
 - <b>Create Powershell
   - <b>Start Icon > Notepad and Copy and Paste the following ...
 
 # ----- Edit these Variables for your own Use Case ----- #
 $PASSWORD_FOR_USERS   = "Password1"
+$USER_FIRST_LAST_LIST = Get-Content .\names.txt
 # ------------------------------------------------------ #
 
-# Get the current user's desktop path
-$DesktopPath = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::Desktop)
-
-# Combine the desktop path with the folder and file name
-$USER_FIRST_LAST_LIST = Get-Content (Join-Path $DesktopPath "AD_PS-master\names.txt")
-
 $password = ConvertTo-SecureString $PASSWORD_FOR_USERS -AsPlainText -Force
-New-ADOrganizationalUnit -Name "USERS" -ProtectedFromAccidentalDeletion $false
+New-ADOrganizationalUnit -Name _USERS -ProtectedFromAccidentalDeletion $false
 
 foreach ($n in $USER_FIRST_LAST_LIST) {
-    # Remove digits from the beginning of the name
-    $cleanName = $n -replace '^\d+',''
-    
-    $first = $cleanName.Split(" ")[0].ToLower()
-    $last = $cleanName.Split(" ")[1].ToLower()
+    $first = $n.Split(" ")[0].ToLower()
+    $last = $n.Split(" ")[1].ToLower()
+
+    # Remove numeric prefixes from the first name
+    $first = $first -replace '^\d+'
+
     $username = "$($first.Substring(0,1))$($last)".ToLower()
     Write-Host "Creating user: $($username)" -BackgroundColor Black -ForegroundColor Cyan
     
@@ -250,10 +246,9 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
                -Name $username `
                -EmployeeID $username `
                -PasswordNeverExpires $true `
-               -Path "ou=USERS,$(([ADSI]'').distinguishedName)" `
+               -Path "ou=_USERS,$(([ADSI]`"").distinguishedName)" `
                -Enabled $true
 }
-
 
   - <b>Save the Notepad on the Desktop as 1_CREATE_USERS.ps1
   - <b>Create a new folder and call it AD_PS-master
@@ -267,20 +262,29 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
 - <b>Start Icon > Windows Powershell > Windows Powershell ISE > More > Run as Administrator.
 - <b>Click on Open Script Icon > Desktop > 1_CREATE_USERS
 - <b>Run the command (F5) > and write "Set-ExecutionPolicy Unrestricted"
-- <b>Change the directory to the script location: cd C:\Users\Administrator\Desktop\PDscripts
-- <b>Run the script: .\New-CustomUsers.ps1
-
+- <b>Change the directory to the script location: C:\Users\a-(first_initial last_name)\Desktop\AD_PS-master > Yes to all
   - <b>This will create 1000 users in the _Users OU
 
+<p align="center">
+<img src="https://i.imgur.com/mm4Jvuq.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
+
+
+<p align="center">
+<img src="https://i.imgur.com/YDL91N9.png" height="80%" width="80%" alt="Internal Internet"/>
+<br />
+<br />
 
 <p align="center">
 Setup Client VM:
 
 - <b>In VirtualBox, create a new VM named "Client1" for Windows 10.
 - <b>Allocate reasonable RAM (e.g., 4096 MB).
-- <b>Select "Use an existing virtual hard disk" and choose the Windows 10 ISO.
-- <b>In Settings > Network, attach the VM to the "Internal Network".
-- <b>Start the VM and install Windows 10 (no product key needed).
+- <b>Right Click VM CLIENT1 > Settings > General > Advanced > Turn Shared Clipboard and Drag'n'Drop to Bidirectional
+- <b>Go to Systems > Processor > change processer to 4
+- <b>VM CLIENT1 > Settings > Network > Adapter 1 > changed Attached to: Internal Network
+- <b>Start the VM and install Windows 10 Pro (no product key needed).
 - <b>In the Windows 10 setup, create a local admin account.
 - <b>After setup, join the machine to the mydomain.com domain:
 
