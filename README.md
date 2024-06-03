@@ -285,12 +285,12 @@ Setup Client VM:
 - <b>Go to Systems > Processor > change processer to 4
 - <b>VM CLIENT1 > Settings > Network > Adapter 1 > changed Attached to: Internal Network
 - <b>Start the VM and install Windows 10 Pro (no product key needed).
-- <b>In the Windows 10 setup, create a local admin account.
 - <b>After setup, join the machine to the mydomain.com domain:
 
   - <b>Right-click Start > System > Rename this PC (advanced)
-  - <b>Click "Change" under the "Member of" section
-  - <b>Enter the domain name (e.g., mydomain.com)
+  - <b>Click "Change" under the "To rename this computer or change its domain or workgroup click Change" section
+  - <b>Enter CLIENT1 under "Computer name:" and click Domain under "Member of"
+    - <b>Enter the domain name (e.g., mydomain.com) and press Ok
   - <b>Provide the domain admin credentials when prompted
 
 
