@@ -1,4 +1,4 @@
-<h1>Creating a Full Active Directory</h1>
+<h2>Creating a Full Active Directory</h2>
 
 
 <h2>Description</h2>
