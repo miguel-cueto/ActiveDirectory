@@ -2,7 +2,7 @@
 
 
 <h2>Description</h2>
-This tutorial demonstrates how to set up a complete Active Directory lab environment on a personal computer using VirtualBox. It covers installing and configuring Windows Server 2019 as a domain controller, setting up Active Directory, configuring networking services, creating users, and joining a Windows 10 client to the domain. The goal is to help understand how Active Directory and Windows networking work in a corporate or educational setting.
+This tutorial demonstrates how to set up a complete Active Directory environment on a personal computer using VirtualBox. It covers installing and configuring Windows Server 2019 as a domain controller, setting up Active Directory, configuring networking services, creating users, and joining a Windows 10 client to the domain. The goal is to help understand how Active Directory and Windows networking work in a corporate or educational setting.
 <br />
 
 
